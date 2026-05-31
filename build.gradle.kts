@@ -1,5 +1,18 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-plugins {
-    id("com.android.application") version "8.1.0" apply false
-    id("org.jetbrains.kotlin.android") version "1.8.10" apply false
+buildscript {
+    repositories {
+        maven { url = uri("https://maven.aliyun.com/repository/central") }
+        google()
+    }
+
+    dependencies {
+        //用于构建出apk/aar的插件
+        //https://developer.android.google.cn/studio/releases/gradle-plugin
+        classpath("com.android.tools.build:gradle:9.2.1")
+
+        //用于编译Kotlin代码的插件
+        //http://kotlinlang.org/docs/reference/using-gradle.html
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:2.3.21")
+    }
 }
+
+tasks.register("clean", Delete::class, { delete(rootProject.layout.buildDirectory) })
