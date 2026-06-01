@@ -19,4 +19,10 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
+      - run: curl -LO https://github.com/leleliu008/ndk-pkg-prefab-aar-maven-repo/releases/download/2023.08.14.00.12/2023.08.14.00.12-com-fpliu-ndk-pkg-prefab-android-21-ffmpeg-6.0.tar.xz
+
+      - run: install -d ~/.m2/repository
+
+      - run: tar vxf 2023.08.14.00.12-com-fpliu-ndk-pkg-prefab-android-21-ffmpeg-6.0.tar.xz --strip-components=1 -C ~/.m2/repository
+
       - run: ./gradlew assembleRelease
