@@ -1,6 +1,5 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
 }
 
 kotlin {
@@ -9,7 +8,7 @@ kotlin {
     }
 }
 
-android {
+configure<com.android.build.api.dsl.ApplicationExtension> {
     namespace = "com.fpliu.android.ndk.pkg.prefab.example.ffmpeg"
     compileSdk = 37
 
